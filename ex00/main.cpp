@@ -11,6 +11,12 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "GradeTooLowExceptionClass.hpp"
+void myfunc()
+{
+    GradeTooLowExceptionClass excep;
+    throw excep;
+}
 
 int main()
 {
@@ -21,9 +27,15 @@ int main()
 //    {
 //        std::cout << "e.what()" <<std::endl;
 //    }
-    std::string name;
-    name = "hamza";
-
-    std::cout << name.length() << std::endl;
+    try
+    {
+        /* do some stuff with bureaucrats */
+        myfunc();
+    }
+    catch (std::exception & e)
+    {
+        /* handle exception */
+        std::cout << "hello from catch" << std::endl;
+    }
     return (0);
 }

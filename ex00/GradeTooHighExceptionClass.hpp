@@ -8,12 +8,10 @@
 #include <iostream>
 #include <exception>
 
-class GradeTooHighException : std::exception{
-private:
-    int grade;
+class GradeTooHighExceptionClass : std::exception{
+
 public:
-    void    setGrade(int grade);
-    std::string    error();
+    const char*   what() const throw();
 };
 
 

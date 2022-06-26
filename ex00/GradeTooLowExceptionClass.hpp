@@ -7,12 +7,9 @@
 #include <exception>
 #include <iostream>
 
-class GradeTooLowException : std::exception {
-private:
-    int grade;
+class GradeTooLowExceptionClass : std::exception {
 public:
-    void    setGrade(int grade);
-    std::string    error();
+    const char*    what() const throw();
 };
 
 

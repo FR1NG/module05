@@ -15,16 +15,16 @@
 
 #include <iostream>
 #include <exception>
-#include "GradeTooHighException.hpp"
-#include "GradeTooLowException.hpp"
+#include "GradeTooHighExceptionClass.hpp"
+#include "GradeTooLowExceptionClass.hpp"
 
 
 class Bureaucrat {
 private:
     const std::string name;
     int               grade;
-    static const GradeTooHighException GradeTooHighException;
-    static const GradeTooLowException GradeTooLowException;
+    static GradeTooHighExceptionClass GradeTooHighException;
+    static GradeTooLowExceptionClass GradeTooLowException;
 public:
     Bureaucrat(int grade, std::string name);
     ~Bureaucrat();
