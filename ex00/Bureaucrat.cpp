@@ -14,12 +14,12 @@
 #include "GradeTooLowExceptionClass.hpp"
 
 Bureaucrat::Bureaucrat(int grade, const std::string name) :name(name){
-//    if (grade < 1)
-//       throw Bureaucrat::GradeTooHighException;
-//    else if (grade > 150)
-//        throw Bureaucrat::GradeTooLowException;
-//    else
-//        this->grade = grade;
+    if (grade < 1)
+       throw Bureaucrat::GradeTooHighException;
+    else if (grade > 150)
+        throw Bureaucrat::GradeTooLowException;
+    else
+        this->grade = grade;
     throw GradeTooLowException;
 }
 
