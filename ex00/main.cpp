@@ -20,22 +20,12 @@ void myfunc()
 
 int main()
 {
-//    try {
-//        Bureaucrat bc(0, "sakalolo");
-//        std::cout << bc << std::endl;
-//    } catch (Bureaucrat &e)
-//    {
-//        std::cout << "e.what()" <<std::endl;
-//    }
-    try
-    {
-        /* do some stuff with bureaucrats */
+    try {
         myfunc();
     }
-    catch (std::exception & e)
+    catch (std::exception &e)
     {
-        /* handle exception */
-        std::cout << "hello from catch" << std::endl;
+        std::cout << e.what() << std::endl;
     }
     return (0);
 }

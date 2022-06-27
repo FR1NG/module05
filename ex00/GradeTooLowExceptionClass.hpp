@@ -7,7 +7,7 @@
 #include <exception>
 #include <iostream>
 
-class GradeTooLowExceptionClass : std::exception {
+class GradeTooLowExceptionClass :public std::exception {
 public:
     const char*    what() const throw();
 };
