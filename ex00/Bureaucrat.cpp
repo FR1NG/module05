@@ -11,26 +11,32 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "GradeTooLowExceptionClass.hpp"
+#include "GradeTooHighExceptionClass.hpp"
 
-Bureaucrat::Bureaucrat() {};
 
-Bureaucrat::Bureaucrat(const Bureaucrat &bureaucrat): name(bureaucrat.getName()), grade(bureaucrat.getGrade()) {}
+Bureaucrat::Bureaucrat() :grade(150), name("DEFAULT_NAME"){
+    std::cout << "creating bureaucrat with default values 'DEFAULT_NAME' as name '150' as grade" << std::endl;
+};
 
-//Bureaucrat& Bureaucrat::operator=(const Bureaucrat &bureaucrat) {
-//    this->name = bureaucrat.getName();
-//    this->grade = bureaucrat.getGrade();
-//}
+Bureaucrat::Bureaucrat(const Bureaucrat &bureaucrat): name(bureaucrat.getName()), grade(bureaucrat.getGrade()) {
+}
+
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat &bureaucrat) {
+    this->grade = bureaucrat.getGrade();
+    return (*this);
+}
 
 Bureaucrat::~Bureaucrat(){}
 
 Bureaucrat::Bureaucrat(int grade, const std::string name) :name(name){
-//    if (grade < 1)
-//       throw Bureaucrat::GradeTooHighException;
-//    else if (grade > 150)
-//        throw Bureaucrat::GradeTooLowException;
-//    else
-//        this->grade = grade;
-//    throw GradeTooLowException;
+    if (grade < 1)
+       throw Bureaucrat::GradeTooHighException;
+    else if (grade > 150)
+        throw Bureaucrat::GradeTooLowException;
+    else
+        this->grade = grade;
+    std::cout << "creating bureaucrat with values '"<< this->name <<"' as name '"<< this->grade <<"' as grade" << std::endl;
 }
 
 const std::string& Bureaucrat::getName() const {
@@ -49,17 +55,23 @@ std::ostream& operator<<(std::ostream& out, const Bureaucrat& bc)
 
 void    Bureaucrat::increment() {
     if (this->grade > 1)
+    {
         this->grade -= 1;
+        std::cout << "Bureaucrat "<< this->name <<" upgraded to Grade : "<< this->grade << std::endl;
+    }
     else
-        NULL;
-//        throw Bureaucrat::GradeTooHighException;
+        throw Bureaucrat::GradeTooHighException;
 }
 
 void    Bureaucrat::decrement() {
     if (this->grade < 150)
+    {
         this->grade += 1;
+        std::cout << "Bureaucrat "<< this->name <<" downgraded to Grade : "<< this->grade << std::endl;
+    }
     else
-        NULL;
-//        throw Bureaucrat::GradeTooLowException;
+        throw Bureaucrat::GradeTooLowException;
 }
 
+GradeTooLowExceptionClass Bureaucrat::GradeTooLowException;
+GradeTooHighExceptionClass Bureaucrat::GradeTooHighException;

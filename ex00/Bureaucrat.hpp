@@ -29,7 +29,7 @@ public:
     static GradeTooLowExceptionClass GradeTooLowException;
     Bureaucrat();
     Bureaucrat(const Bureaucrat& bureaucrat);
-//    Bureaucrat& operator=(const Bureaucrat& bureaucrat);
+    Bureaucrat& operator=(const Bureaucrat& bureaucrat);
     ~Bureaucrat();
 
     Bureaucrat(int grade, std::string name);
