@@ -23,13 +23,20 @@ class Bureaucrat {
 private:
     const std::string name;
     int               grade;
+
+public:
     static GradeTooHighExceptionClass GradeTooHighException;
     static GradeTooLowExceptionClass GradeTooLowException;
-public:
-    Bureaucrat(int grade, std::string name);
+    Bureaucrat();
+    Bureaucrat(const Bureaucrat& bureaucrat);
+//    Bureaucrat& operator=(const Bureaucrat& bureaucrat);
     ~Bureaucrat();
-    std::string const getName() const;
+
+    Bureaucrat(int grade, std::string name);
+    const std::string& getName() const;
     int getGrade() const;
+    void    increment(void);
+    void    decrement();
 };
 std::ostream& operator<<(std::ostream &out, const Bureaucrat& bc);
 

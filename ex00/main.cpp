@@ -12,16 +12,11 @@
 
 #include "Bureaucrat.hpp"
 #include "GradeTooLowExceptionClass.hpp"
-void myfunc()
-{
-    GradeTooLowExceptionClass excep;
-    throw excep;
-}
 
 int main()
 {
     try {
-        myfunc();
+        Bureaucrat biro9rat(0, "hamza");
     }
     catch (std::exception &e)
     {
