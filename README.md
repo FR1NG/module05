@@ -50,5 +50,52 @@ std::range_error
 std::underflow_error
 
 
- `thow` `try` and `catch`
+to make our exception class we have to derive it publicly from `std::exception`
+# example :
+
+```c++
+#include <exception>
+
+class GradeTooHighExceptionClass : std::exception{
+
+    public:
+        const char*   what() const throw() {
+            return "your error message";
+        };
+};
+
+```
+
+then we have to overload the `what()` member function , the function to describe what's happening  
+
+# how to throw an exception :
+
+to throw an exception we use the keyword `throw` 
+
+to catch it we use `try` `catch` syntax, example bellow.
+
+ ```c++
+    void myFunction(int grade)
+{
+    if (grade < 0)
+        throw GradeTooHighExceptionClass;
+    else
+        std::cout << "all good" << std::endl;
+}
+
+int main()
+{
+    try {
+        myFunction(-1);
+    } catch (std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+}
+ ```
+
+int the function above if the grade in less than 0 we will throw and exception, than in the main function we give `myFunction` -1 as argument than we catch it using the keyword catch.
+our programme will print `your error message` followed by a new line.
+
+if we use a positive value of grade the function will run and no exception will be thrown, our programme will print `all good` followed by a new line.
 
