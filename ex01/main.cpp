@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   GradeTooLowExceptionClass.hpp                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hchakoub <hchakoub@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 16:49:34 by hchakoub          #+#    #+#             */
-/*   Updated: 2022/06/28 16:49:35 by hchakoub         ###   ########.fr       */
+/*   Created: 2022/06/23 09:37:13 by hchakoub          #+#    #+#             */
+/*   Updated: 2022/06/23 09:37:14 by hchakoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//
-// Created by Hamza Chakoubi on 6/25/22.
-//
+#include "Bureaucrat.hpp"
+#include "GradeTooLowExceptionClass.hpp"
+#include "Form.hpp"
 
-#ifndef MODULE05_GRADETOOLOWEXCEPTION_HPP
-#define MODULE05_GRADETOOLOWEXCEPTION_HPP
-#include <exception>
-#include <iostream>
+int main()
+{
+    try {
+        Form form("CONTRATTO", 1, 0);
 
-class GradeTooLowExceptionClass :public std::exception {
-public:
-    const char*    what() const throw();
-};
-
-
-#endif //MODULE05_GRADETOOLOWEXCEPTION_HPP
+    } catch (std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+//    form.printDetails();
+    return (0);
+}

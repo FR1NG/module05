@@ -13,12 +13,6 @@
 #include "Bureaucrat.hpp"
 #include "GradeTooLowExceptionClass.hpp"
 
-void test()
-{
-    GradeTooLowExceptionClass grade;
-    throw grade;
-}
-
 int main()
 {
 //    testing Bureaucrat with default values;
