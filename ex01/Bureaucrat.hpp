@@ -17,7 +17,7 @@
 #include <exception>
 #include "GradeTooHighExceptionClass.hpp"
 #include "GradeTooLowExceptionClass.hpp"
-
+#include "Form.hpp"
 
 class Bureaucrat {
 private:
@@ -37,6 +37,7 @@ public:
     int getGrade() const;
     void    increment(void);
     void    decrement();
+    void    signForm(const Form &form) const;
 };
 std::ostream& operator<<(std::ostream &out, const Bureaucrat& bc);
 

@@ -17,7 +17,7 @@
 int main()
 {
     try {
-        Form form("CONTRATTO", 1, 0);
+        Form form("CONTRATTO", 1, 1);
 
     } catch (std::exception &e)
     {

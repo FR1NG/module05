@@ -78,5 +78,15 @@ void    Form::printDetails() const {
     std::cout << "============================================================" << std::endl;
 }
 
+void Form::beSigned(const Bureaucrat &charged) {
+    if (this->getRequiredGradeToSign() < charged.getGrade())
+        throw Form::GradeTooLowException;
+    else
+    {
+//        this->isSigned = true;
+//        std::cout << "form hase been signed by " << charged.getName() << std::endl;
+    }
+}
+
 FormGradeTooHighException Form::GradeTooHighException;
 FormGradeTooLowException Form::GradeTooLowException;

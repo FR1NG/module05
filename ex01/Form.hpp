@@ -21,6 +21,8 @@
 #include <iomanip>
 #include "FormGradeTooHighException.hpp"
 #include "FormGradeTooLowException.hpp"
+#include "Bureaucrat.hpp"
+
 
 class Form {
 private:
@@ -41,6 +43,8 @@ public:
     int getRequiredGradeToSign(void) const;
     int getRequiredGradeToExecute(void) const;
     void    printDetails(void) const;
+    void    beSigned(const Bureaucrat& charged);
+
 
     static FormGradeTooHighException GradeTooHighException;
     static FormGradeTooLowException GradeTooLowException;
