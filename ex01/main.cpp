@@ -13,16 +13,81 @@
 #include "Bureaucrat.hpp"
 #include "GradeTooLowExceptionClass.hpp"
 #include "Form.hpp"
+#include "FormGradeTooHighException.hpp"
+#include "FormGradeTooLowException.hpp"
+
 
 int main()
 {
+    //    case every thing is good
     try {
-        Form form("CONTRATTO", 1, 1);
+        Form form("CONTRATTO", 150, 1);
+        Bureaucrat b(1, "rvn");
+        b.signForm(form);
+        b.signForm(form);
+        try {
+            form.beSigned(b);
+        } catch (std::exception &e)
+        {
+            std::cout << e.what() << std::endl;
+        }
+        std::cout << form << std::endl ;
 
     } catch (std::exception &e)
     {
         std::cout << e.what() << std::endl;
     }
-//    form.printDetails();
+
+
+    std::cout << "=========================[ other test ]=========================" << std::endl;
+    //    let get some exceptions
+    try {
+        Form form("CONTRATTO_DE_LABORO", 160, 0);
+    }
+    catch (std::exception &e) {
+        std::cout << e.what() << std::endl;
+    }
+
+    std::cout << "=========================[ other test ]=========================" << std::endl;
+    //    signing grade exception
+    try {
+        Form form("CONTRATTO", 2, 1);
+        Bureaucrat b(19, "Morgan");
+        b.signForm(form);
+        b.signForm(form);
+        try {
+            form.beSigned(b);
+        } catch (std::exception &e)
+        {
+            std::cout << e.what() << std::endl;
+        }
+        std::cout << form << std::endl ;
+
+    } catch (std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+
+    std::cout << "=========================[ other test ]=========================" << std::endl;
+    //    signing grade exception
+    try {
+        Form form("CONTRATTO", 2, 1);
+        Bureaucrat b(19, "Morgan");
+        b.signForm(form);
+        b.signForm(form);
+        try {
+            form.beSigned(b);
+        } catch (std::exception &e)
+        {
+            std::cout << e.what() << std::endl;
+        }
+        std::cout << form << std::endl ;
+
+    } catch (std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+
+
     return (0);
 }

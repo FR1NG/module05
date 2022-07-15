@@ -15,29 +15,24 @@
 //
 
 #include "Form.hpp"
-Form::Form(): name("DEFAULT_FORM"), isSigned(false), requiredGradeToExecute(1), requiredGradeToSign(1)
+#include "SignException.hpp"
+#include "Bureaucrat.hpp"
+
+Form::Form(): name("DEFAULT_FORM"), isSigned(false), requiredGradeToSign(1), requiredGradeToExecute(1)
 {
     std::cout << "creating default form with highest privileges with the name 'DEFAULT_FORM'" << std::endl;
 }
 
-Form::Form(std::string name, int signGrade, int execGrade): name(name), isSigned(false){
+Form::Form(std::string name, int signGrade, int execGrade): name(name), isSigned(false), requiredGradeToSign(signGrade), requiredGradeToExecute(execGrade) {
 
-    if (signGrade < 1 || execGrade < 1)
-        throw Form::GradeTooHighException;
-    else if (signGrade > 150 || execGrade > 150)
+    if (signGrade > 150 || execGrade > 150)
         throw Form::GradeTooLowException;
+    else if (signGrade < 1 || execGrade < 1)
+        throw Form::GradeTooHighException;
     else
-    {
-//        , requiredGradeToSign(signGrade), requiredGradeToExecute(execGrade)
-        this->requiredGradeToSign = signGrade;
-        this->requiredGradeToExecute = execGrade;
-        std::cout << "creating form with this details" << std::endl;
-        this->printDetails();
-    }
+
+        std::cout << "creating form with this details ==> "<< *this << std::endl;
 }
-
-
-//Form::Form(const Form &form): name(form.name), isSigned(form.isSigned), requiredGradeToSign(form.requiredGradeToSign), requiredGradeToExecute(form.requiredGradeToExecute) {}
 
 Form::Form(const Form &form):name(form.getName()), isSigned(form.getIsSigned()), requiredGradeToSign(form.getRequiredGradeToSign()), requiredGradeToExecute(form.getRequiredGradeToExecute()) {}
 
@@ -45,8 +40,6 @@ Form& Form::operator=(const Form &form) {
     if (this == &form)
         return (*this);
     this->isSigned = form.getIsSigned();
-    this->requiredGradeToSign = form.getRequiredGradeToSign();
-    this->requiredGradeToExecute = form.getRequiredGradeToExecute();
     return (*this);
 }
 
@@ -83,10 +76,21 @@ void Form::beSigned(const Bureaucrat &charged) {
         throw Form::GradeTooLowException;
     else
     {
-//        this->isSigned = true;
-//        std::cout << "form hase been signed by " << charged.getName() << std::endl;
+        if (this->getIsSigned() == false)
+            this->isSigned = true;
+        else
+        {
+            SignException e;
+            throw e;
+        }
     }
 }
 
 FormGradeTooHighException Form::GradeTooHighException;
 FormGradeTooLowException Form::GradeTooLowException;
+
+
+std::ostream& operator<<(std::ostream& out, const Form& form) {
+    out << "name : " << form.getName() << ", is signed : " << (form.getIsSigned() ? "true" : "false" )<< ", required grad to sign : " << form.getRequiredGradeToSign()<< ", required grade to execute : " << form.getRequiredGradeToExecute();
+    return (out);
+};

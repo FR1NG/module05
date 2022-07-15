@@ -13,13 +13,13 @@
 CPP=c++
 CPPFLAGS= -Wall -Wextra -Werror -std=c++98
 NAME=a.out
-SRC=main.cpp Bureaucrat.cpp GradeTooLowExceptionClass.cpp GradeTooHighExceptionClass.cpp Form.cpp FormGradeTooLowException.cpp FormGradeTooHighException.cpp
+SRC=main.cpp Bureaucrat.cpp GradeTooLowExceptionClass.cpp GradeTooHighExceptionClass.cpp Form.cpp FormGradeTooLowException.cpp FormGradeTooHighException.cpp SignException.cpp
 OBJ=$(SRC:.cpp=.o)
 
 all: $(NAME)
 
 %.o: %.cpp
-	$(CPP) -c $< -o $@
+	$(CPP) $(CPPFLAGS) -c $< -o $@
 
 $(NAME) : $(OBJ)
 	$(CPP) $^ -o $@

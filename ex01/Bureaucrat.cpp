@@ -13,9 +13,10 @@
 #include "Bureaucrat.hpp"
 #include "GradeTooLowExceptionClass.hpp"
 #include "GradeTooHighExceptionClass.hpp"
+#include "Form.hpp"
 
 
-Bureaucrat::Bureaucrat() :grade(150), name("DEFAULT_NAME"){
+Bureaucrat::Bureaucrat() : name("DEFAULT_NAME"), grade(150){
     std::cout << "creating bureaucrat with default values 'DEFAULT_NAME' as name '150' as grade" << std::endl;
 };
 
@@ -71,6 +72,15 @@ void    Bureaucrat::decrement() {
     }
     else
         throw Bureaucrat::GradeTooLowException;
+}
+
+void Bureaucrat::signForm(Form &form) const {
+   try {
+       form.beSigned(*this);
+       std::cout << this->getName() << " signed " << form.getName() << std::endl;
+   } catch (std::exception &e) {
+        std::cout << this->getName() << " couldn’t sign " << form.getName() << " because " << e.what() << std::endl;
+   }
 }
 
 GradeTooLowExceptionClass Bureaucrat::GradeTooLowException;

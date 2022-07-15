@@ -5,5 +5,5 @@
 #include "FormGradeTooLowException.hpp"
 
 const char *FormGradeTooLowException::what() const throw() {
-    return "The grade that you trying to assign to this form is too low";
+    return "Form grade is too low";
 }

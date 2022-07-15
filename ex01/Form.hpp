@@ -14,22 +14,22 @@
 // Created by Hamza Chakoubi on 6/28/22.
 //
 
-#ifndef MODULE05_FORM_HPP
-#define MODULE05_FORM_HPP
+#ifndef FORM_HPP
+#define FORM_HPP
 
 #include <iostream>
 #include <iomanip>
 #include "FormGradeTooHighException.hpp"
 #include "FormGradeTooLowException.hpp"
-#include "Bureaucrat.hpp"
 
+class Bureaucrat;
 
 class Form {
 private:
     const std::string name;
     bool isSigned;
-    int requiredGradeToSign;
-    int requiredGradeToExecute;
+    const int requiredGradeToSign;
+    const int requiredGradeToExecute;
 
 public:
     Form();
@@ -49,7 +49,7 @@ public:
     static FormGradeTooHighException GradeTooHighException;
     static FormGradeTooLowException GradeTooLowException;
 };
-//std::ostream& operator<<(const Form& form);
+std::ostream& operator<<(std::ostream& out, const Form& form);
 
 
-#endif //MODULE05_FORM_HPP
+#endif //FORM_HPP
