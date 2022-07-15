@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   GradeTooHighExceptionClass.hpp                     :+:      :+:    :+:   */
+/*   FormGradeTooHighException.cpp                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hchakoub <hchakoub@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 16:48:59 by hchakoub          #+#    #+#             */
-/*   Updated: 2022/07/15 11:18:08 by hchakoub         ###   ########.fr       */
+/*   Created: 2022/07/15 11:18:43 by hchakoub          #+#    #+#             */
+/*   Updated: 2022/07/15 11:18:44 by hchakoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //
-// Created by Hamza Chakoubi on 6/25/22.
+// Created by Hamza Chakoubi on 6/29/22.
 //
 
-#ifndef GRADETOOHIGHEXCEPTION_HPP
-#define GRADETOOHIGHEXCEPTION_HPP
+#include "FormGradeTooHighException.hpp"
 
-#include <iostream>
-#include <exception>
-
-class GradeTooHighExceptionClass :public std::exception{
-
-public:
-    const char*   what() const throw();
-};
-
-
-#endif //GRADETOOHIGHEXCEPTION_HPP
+const char *FormGradeTooHighException::what() const throw() {
+    return "Form required lower grade, this grade is too high";
+}

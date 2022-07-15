@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FormGradeTooHighException.hpp                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hchakoub <hchakoub@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/15 11:16:28 by hchakoub          #+#    #+#             */
+/*   Updated: 2022/07/15 11:18:08 by hchakoub         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 //
 // Created by Hamza Chakoubi on 6/29/22.
 //
 
-#ifndef MODULE05_FORMGRADETOOHIGHEXCEPTION_HPP
-#define MODULE05_FORMGRADETOOHIGHEXCEPTION_HPP
+#ifndef FORMGRADETOOHIGHEXCEPTION_HPP
+#define FORMGRADETOOHIGHEXCEPTION_HPP
 
 #include <exception>
 #include <iostream>
@@ -14,4 +26,4 @@ public:
 };
 
 
-#endif //MODULE05_FORMGRADETOOHIGHEXCEPTION_HPP
+#endif //FORMGRADETOOHIGHEXCEPTION_HPP
