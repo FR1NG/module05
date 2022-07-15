@@ -15,7 +15,7 @@
 #include "GradeTooHighExceptionClass.hpp"
 
 
-Bureaucrat::Bureaucrat() :grade(150), name("DEFAULT_NAME"){
+Bureaucrat::Bureaucrat() :name("DEFAULT_NAME"), grade(150) {
     std::cout << "creating bureaucrat with default values 'DEFAULT_NAME' as name '150' as grade" << std::endl;
 };
 

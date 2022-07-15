@@ -19,7 +19,7 @@ OBJ=$(SRC:.cpp=.o)
 all: $(NAME)
 
 %.o: %.cpp
-	$(CPP) -c $< -o $@
+	$(CPP) $(CPPFLAGS) -c $< -o $@
 
 $(NAME) : $(OBJ)
 	$(CPP) $^ -o $@
