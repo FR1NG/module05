@@ -6,7 +6,7 @@
 #    By: hchakoub <hchakoub@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/23 09:37:15 by hchakoub          #+#    #+#              #
-#    Updated: 2022/06/23 09:37:16 by hchakoub         ###   ########.fr        #
+#    Updated: 2022/07/16 16:46:02 by hchakoub         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CPPFLAGS= -Wall -Wextra -Werror -std=c++98
 NAME=a.out
 SRC=main.cpp Bureaucrat.cpp GradeTooLowExceptionClass.cpp GradeTooHighExceptionClass.cpp\
  Form.cpp FormGradeTooLowException.cpp FormGradeTooHighException.cpp SignException.cpp\
- ShrubberyCreationForm.cpp RobotomyRequestForm.cpp
+ ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 OBJ=$(SRC:.cpp=.o)
 
 
