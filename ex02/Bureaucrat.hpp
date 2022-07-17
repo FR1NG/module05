@@ -29,16 +29,17 @@ public:
     static GradeTooHighExceptionClass GradeTooHighException;
     static GradeTooLowExceptionClass GradeTooLowException;
     Bureaucrat();
+    Bureaucrat(int grade, std::string name);
     Bureaucrat(const Bureaucrat& bureaucrat);
     Bureaucrat& operator=(const Bureaucrat& bureaucrat);
     ~Bureaucrat();
 
-    Bureaucrat(int grade, std::string name);
-    const std::string& getName() const;
-    int getGrade() const;
+    const   std::string& getName() const;
+    int     getGrade() const;
     void    increment(void);
     void    decrement();
     void    signForm(Form &form) const;
+    void    executeForm(Form const & form);
 };
 std::ostream& operator<<(std::ostream &out, const Bureaucrat& bc);
 

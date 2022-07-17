@@ -77,7 +77,10 @@ void Form::beSigned(const Bureaucrat &charged) {
     else
     {
         if (this->getIsSigned() == false)
+        {
             this->isSigned = true;
+            std::cout << this->getName() << "singed by " << charged.getName() << std::endl;
+        }
         else
         {
             SignException e;

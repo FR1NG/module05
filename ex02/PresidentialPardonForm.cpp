@@ -22,7 +22,7 @@ PresidentialPardonForm::PresidentialPardonForm():Form("default", 25, 5)
     
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string &target): Form(target, 52, 5)
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target): Form(target, 25, 5)
 {
     
 }
