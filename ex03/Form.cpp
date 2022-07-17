@@ -20,7 +20,6 @@
 
 Form::Form(): name("DEFAULT_FORM"), isSigned(false), requiredGradeToSign(1), requiredGradeToExecute(1)
 {
-    std::cout << "creating default form with highest privileges with the name 'DEFAULT_FORM'" << std::endl;
 }
 
 Form::Form(std::string name, int signGrade, int execGrade): name(name), isSigned(false), requiredGradeToSign(signGrade), requiredGradeToExecute(execGrade) {
@@ -29,9 +28,6 @@ Form::Form(std::string name, int signGrade, int execGrade): name(name), isSigned
         throw Form::GradeTooLowException;
     else if (signGrade < 1 || execGrade < 1)
         throw Form::GradeTooHighException;
-    else
-
-        std::cout << "creating form with this details ==> "<< *this << std::endl;
 }
 
 Form::Form(const Form &form):name(form.getName()), isSigned(form.getIsSigned()), requiredGradeToSign(form.getRequiredGradeToSign()), requiredGradeToExecute(form.getRequiredGradeToExecute()) {}
