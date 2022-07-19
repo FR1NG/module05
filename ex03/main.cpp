@@ -1,5 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
@@ -12,12 +10,22 @@
 
 #include "Intern.hpp"
 
-int main(int c, char **v)
-{
-    Intern chebL3arbi;
-    Form* lform;
-    try {
-        
-    }
-    return (0);
+int main() {
+  Intern chebL3arbi;
+  Form *form1;
+  Form *form2;
+  Form *form3;
+  Form *form4;
+
+  form1 = chebL3arbi.makeForm("robotomy request", "robotiih");
+  form2 = chebL3arbi.makeForm("shrubbery creation", "shrubbryh");
+  form3 = chebL3arbi.makeForm("presidential pardon", "pardoniih");
+  form4 = chebL3arbi.makeForm("chi7aja makaynach", "walohiih");
+
+  delete form1;
+  delete form2;
+  delete form3;
+  while (1)
+    ;
+  return (0);
 }

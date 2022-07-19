@@ -16,20 +16,19 @@
 
 #ifndef MODULE05_INTERN_HPP
 #define MODULE05_INTERN_HPP
-#include <iostream>
+#include "Form.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
-#inlcude "ShrubberyCreationForm.hpp"
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include <iostream>
 
 class Intern {
 public:
-    Intern();
-    Intern(const Intern& intern);
-    Intern& operator=(const Intern &intern);
-    ~Intern();
-    Form* makeForm(const std::string &name, const std::string &target);
+  Intern();
+  Intern(const Intern &intern);
+  Intern &operator=(const Intern &intern);
+  ~Intern();
+  Form *makeForm(const std::string &name, const std::string &target);
 };
 
-
-#endif //MODULE05_INTERN_HPP
+#endif // MODULE05_INTERN_HPP

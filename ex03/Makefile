@@ -15,7 +15,7 @@ CPPFLAGS= -Wall -Wextra -Werror -std=c++98
 NAME=a.out
 SRC=main.cpp Bureaucrat.cpp GradeTooLowExceptionClass.cpp GradeTooHighExceptionClass.cpp\
  Form.cpp FormGradeTooLowException.cpp FormGradeTooHighException.cpp SignException.cpp\
- ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+ ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp 
 OBJ=$(SRC:.cpp=.o)
 
 
